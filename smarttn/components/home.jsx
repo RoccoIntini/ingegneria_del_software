@@ -1,9 +1,8 @@
-import { cookies } from 'next/headers';
 import Link from "next/link";
 import "../app/home.css";
+import checkTokenValidity from "../app/token_validity.js";
 
 export default function Home_navbar() {
-  const token = cookies().get('tokenjwt')?.value;
   return (
     <h1 className="navbar">
       <Link href="/" className="bottoni_home">Home</Link>
@@ -18,7 +17,7 @@ export default function Home_navbar() {
       <Link href="viewCourseUser" className="bottoni_home">Corsi</Link>
 
 
-      {!token ? (
+      {!checkTokenValidity() ? (
           <Link href="/login" className="bottoni_home">Accedi</Link>
         ) : (
           <Link href="/profile" className="bottoni_home">Profilo</Link>
