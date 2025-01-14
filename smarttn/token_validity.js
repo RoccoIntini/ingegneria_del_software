@@ -1,8 +1,12 @@
 'use server'
+<<<<<<< HEAD
+=======
+
+>>>>>>> af1c6448e05100e06bdb400105b5fb8e69d0a59f
 import { jwtDecode } from "jwt-decode";
 import { cookies } from 'next/headers';
 
-export function checkTokenValidity() {
+export async function checkTokenValidity() {
     // Ottieni il token dai cookie
     const token = cookies().get('tokenjwt')?.value;
 
