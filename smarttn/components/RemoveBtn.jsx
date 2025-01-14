@@ -10,7 +10,7 @@ export function RemoveBtnUser({ id }) {
         const confirmed = confirm("Sei sicuro di voler eliminare questo utente?");
         
         if (confirmed) {
-            const res = await fetch(`http://localhost:3000/api/users?id=${id}`, {
+            const res = await fetch(`https://ingegneria-del-software-phcc.onrender.com/api/users?id=${id}`, {
                 method: "DELETE",
             });
 
@@ -36,7 +36,7 @@ export function RemoveBtnCourse({ id }) {
         const confirmed = confirm("Sei sicuro di voler eliminare questo corso?");
         
         if (confirmed) {
-            const res = await fetch(`http://localhost:3000/api/courses?id=${id}`, {
+            const res = await fetch(`https://ingegneria-del-software-phcc.onrender.com/api/courses?id=${id}`, {
                 method: "DELETE",
             });
 
