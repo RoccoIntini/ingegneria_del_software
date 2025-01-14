@@ -9,6 +9,8 @@ export async function checkTokenValidity() {
     // Se il token non è presente o non è una stringa valida
     if (!token || typeof token !== 'string') {
         console.error('Token non valido o non presente');
+        console.log("false");
+        
         return false;
     }
 
@@ -24,6 +26,8 @@ export async function checkTokenValidity() {
 
 
         // Se tutto è valido, ritorna il token decodificato
+        console.log("true");
+
         return true;
 
     } catch (error) {

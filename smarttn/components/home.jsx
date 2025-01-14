@@ -19,7 +19,7 @@ export default function Home_navbar({ isTokenValid }) {
       {!isTokenValid ? (
           <Link href="/login" className="bottoni_home">Accedi</Link>
         ) : (
-          <Link href="/profile" className="bottoni_home">Profilo</Link>
+          <Link href="/login" className="bottoni_home">Profilo</Link>
         )}
 
         
