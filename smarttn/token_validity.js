@@ -1,8 +1,4 @@
 'use server'
-<<<<<<< HEAD
-=======
-
->>>>>>> af1c6448e05100e06bdb400105b5fb8e69d0a59f
 import { jwtDecode } from "jwt-decode";
 import { cookies } from 'next/headers';
 
