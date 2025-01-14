@@ -4,7 +4,7 @@ import { RemoveBtnUser } from "./RemoveBtn";
 
 const getUsers = async () => {
     try {
-        const res = await fetch("http://localhost:3000/api/users", {
+        const res = await fetch("https://ingegneria-del-software-phcc.onrender.com/api/users", {
             cache: "no-store",
         });
 
