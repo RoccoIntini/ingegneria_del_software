@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const getCourses = async () => {
     try {
-        const res = await fetch('http://localhost:3000/api/courses', {
+        const res = await fetch('https://ingegneria-del-software-phcc.onrender.com/api/courses', {
             cache: "no-store",
         });
 
