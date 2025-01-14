@@ -1,6 +1,6 @@
 import Link from "next/link";
+import checkTokenValidity from "../../token_validity.js/index.js";
 import "../app/home.css";
-import checkTokenValidity from "../app/token_validity.js";
 
 export default function Home_navbar() {
   return (
