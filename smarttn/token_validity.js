@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 
 export async function checkTokenValidity() {
     // Ottieni il token dai cookie
-    const token = cookies().get('tokenjwt')?.value;
+    const token = await cookies().get('tokenjwt')?.value;
 
     // Se il token non è presente o non è una stringa valida
     if (!token || typeof token !== 'string') {
@@ -27,6 +27,7 @@ export async function checkTokenValidity() {
 
         // Se tutto è valido, ritorna il token decodificato
         console.log("true");
+        console.error('Token presente');
 
         return true;
 
