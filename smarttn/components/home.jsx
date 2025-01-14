@@ -13,7 +13,7 @@ export default function Home_navbar() {
       
 
 
-      <Link href="viewCourse" className="bottoni_home">Corsi</Link>
+      <Link href="viewCourseUser" className="bottoni_home">Corsi</Link>
 
 
 
