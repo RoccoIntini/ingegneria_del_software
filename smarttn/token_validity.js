@@ -3,7 +3,7 @@
 import { jwtDecode } from "jwt-decode";
 import { cookies } from 'next/headers';
 
-export function checkTokenValidity() {
+export async function checkTokenValidity() {
     // Ottieni il token dai cookie
     const token = cookies().get('tokenjwt')?.value;
 
