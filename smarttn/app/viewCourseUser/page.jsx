@@ -1,5 +1,5 @@
-import Courses_list from '@/components/Courses_list';
+import Courses_list_User from '@/components/Courses_list_user';
 
 export default function CoursesListPage() {
-  return <Courses_list />;
+  return <Courses_list_User />;
 }
