@@ -1,0 +1,107 @@
+.navbar {
+    font-size: 1.5rem; /* text-2xl */
+    display: flex;
+    align-items: center;
+    background-color: #b91c1c; /* bg-red-800 */
+    justify-content: space-between;
+    padding: 0; /* py-4 */
+    color: white; /* text-white */
+    margin: 0; /* my-6 */
+    width: 100%;
+    height: 72px;
+    /*box-sizing: border-box;*/
+  }
+  
+  .logo {
+    width: 110px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f9fbfc; /* Colore di sfondo */
+    border: 1px solid #ccc; /* Bordo */
+    border-radius: 20px; /* Angoli arrotondati */
+    padding: 5px 15px; /* Spaziatura interna */
+    width: 100%; /* Larghezza desiderata */
+    max-width: 400px; /* Larghezza massima */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+  }
+  
+  .search-icon {
+    width: 18px; /* Larghezza dell'icona */
+    height: 18px; /* Altezza dell'icona */
+    margin-right: 10px; /* Spaziatura tra l'icona e l'input */
+  }
+  
+  .search-bar input {
+    border: none; /* Rimuovi il bordo predefinito */
+    outline: none; /* Rimuovi il bordo attivo */
+    width: 100%; /* Occupa tutta la larghezza disponibile */
+    background-color: transparent; /* Sfondo trasparente */
+    font-size: 16px; /* Dimensione del testo */
+    color: #333; /* Colore del testo */
+  }
+  
+  .search-bar input::placeholder {
+    color: #aaa; /* Colore del testo segnaposto */
+  }
+
+  .navbar-title {
+    padding-left: 5rem; /* pl-20 */
+    font-weight: bold;
+  }
+  
+  .bottoni_home {
+    text-decoration: none;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-btn {
+    padding: 0.5rem 0; /* py-2 */
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+  }
+  
+  .accedi {
+    position: absolute;
+    left: 0;
+    display: none;
+    background-color: white;
+    color: #b91c1c;
+    font-size: 1rem; /* text-base */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* shadow-lg */
+    width: 10rem; /* w-40 */
+    z-index: 10;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    text-decoration: none;
+    color: #b91c1c;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f3f4f6; /* colore hover */
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .navbar-right {
+    padding-right: 5rem; /* pr-20 */
+  }
+  
