@@ -1,15 +1,9 @@
-import Cookies from "js-cookie";
+import { cookies } from 'next/headers';
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import "../app/home.css";
 
 export default function Home_navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = Cookies.get("tokenjwt");
-    setIsLoggedIn(!!token); // True se il token è presente, false altrimenti
-  }, []);
+  const token = cookies().get('tokenjwt')?.value;
   return (
     <h1 className="navbar">
       <Link href="/" className="bottoni_home">Home</Link>
@@ -24,11 +18,16 @@ export default function Home_navbar() {
       <Link href="viewCourseUser" className="bottoni_home">Corsi</Link>
 
 
-      {!isLoggedIn ? (
-        <Link href="/login" className="bottoni_home">Accedi</Link>
-      ) : (
-        <Link href="/profile">Profilo</Link>
-      )}
+      {!token ? (
+          <Link href="/login" className="bottoni_home">Accedi</Link>
+        ) : (
+          <Link href="/profile" className="bottoni_home">Profilo</Link>
+        )}
+
+        
+      
+        
+      
        
       
     </h1>
