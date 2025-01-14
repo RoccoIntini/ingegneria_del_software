@@ -19,7 +19,7 @@ export default function AddUser() {
         }
 
         try {
-            const res = await fetch('http://localhost:3000/api/users', {
+            const res = await fetch('https://ingegneria-del-software-phcc.onrender.com/api/users', {
                 method: 'POST',
                 headers: {
                     "Content-type": "application/json"
