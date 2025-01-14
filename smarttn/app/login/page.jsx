@@ -79,7 +79,7 @@ export default function Login() {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    min-height: 100vh;
+                    min-height: 40vh;
                     background-color: #f0f0f0;
                 }
 
@@ -100,6 +100,7 @@ export default function Login() {
                 .input-field {
                     width: 100%;
                     padding: 10px;
+                    color: #e60000;
                     margin: 10px 0;
                     border: none;
                     border-radius: 5px;
