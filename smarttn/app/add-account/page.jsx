@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function AddUser() {
     const [username, setUsername] = useState("");
@@ -28,7 +28,7 @@ export default function AddUser() {
             });
 
             if (res.ok) {
-                router.push('/');
+                router.push('/admin');
             } else {
                 throw new Error("Creazione dell'utente fallita");
             }
