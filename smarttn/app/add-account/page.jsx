@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function AddUser() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState("user");
 
     const router = useRouter();
 
@@ -14,26 +14,23 @@ export default function AddUser() {
         e.preventDefault();
 
         if (!username || !password) {
-            alert("L'username e la Password sono obbligatori");
+            alert("L'username e la password sono obbligatori");
             return;
         }
 
         try {
-            const res = await fetch('https://ingegneria-del-software-phcc.onrender.com/api/users', {
+            const res = await fetch('http://localhost:3000/api/users', {
                 method: 'POST',
                 headers: {
                     "Content-type": "application/json"
                 },
                 body: JSON.stringify({ username, password, role }),
-
-
             });
 
             if (res.ok) {
                 router.push('/');
             } else {
                 throw new Error("Creazione dell'utente fallita");
-
             }
         } catch (error) {
             console.log(error);
@@ -41,44 +38,97 @@ export default function AddUser() {
     };
 
     return (
-        <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-bold mb-4 py-5">Aggiungi un nuovo utente</h2>
+        <div className="add-user-container">
+            <h2 className="title">Aggiungi un nuovo utente</h2>
 
-            <form onSubmit={handleSubmit} className="border border-slate-800 flex flex-col gap-11 py-10 px-10 bg-red-300 rounded-lg">
-                <div className="flex items-center gap-12">
-                    <div className="pr-10">
-                        <input onChange={(e) => setUsername(e.target.value)}
-                            value={username}
-                            className="border border-slate-500 py-2 px-10 text-xl rounded-s text-red-600"
-                            type="text"
-                            placeholder="Username"
-                        />
-                    </div>
-                    <div className="pl-10">
-                        <input onChange={(e) => setPassword(e.target.value)}
-                            value={password}
-                            className="border border-slate-500 px-10 py-2 text-xl rounded-s text-red-600"
-                            type="password"
-                            placeholder="Password"
-                        />
-                    </div>
-                </div>
+            <form onSubmit={handleSubmit} className="add-user-form">
+                <input
+                    className="input-field"
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                    type="text"
+                    placeholder="Username"
+                />
 
-                {/* Sfondo bianco per la select */}
+                <input
+                    className="input-field"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder="Password"
+                />
+
                 <select
-                    onChange={(e) => setRole(e.target.value)} // Move onChange here to the select element
+                    onChange={(e) => setRole(e.target.value)}
                     value={role}
-                    className="border border-slate-500 text-xl max-w-3xl rounded-s h-15 py-2 text-red-600 bg-white"
+                    className="select-field"
                 >
-                    <option value="user" className="text-red">User</option>
-                    <option value="poweruser" className="text-red">Power user</option>
+                    <option value="user">User</option>
+                    <option value="poweruser">Power User</option>
                 </select>
 
-
-                <button type="submit" className="border border-slate-800 rounded-s max-w-3xl bg-red-600 font-bold text-white py-2 px-4 m text-xl">
-                    Aggiungi utente
+                <button type="submit" className="submit-button">
+                    Aggiungi Utente
                 </button>
             </form>
+
+            <style jsx>{`
+                .add-user-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 70vh;
+                }
+
+                .add-user-form {
+                    margin-top: 30px;
+                    background-color: #b30000;
+                    padding: 50px;
+                    padding-bottom: 100px;
+                    border-radius: 15px;
+                    text-align: center;
+                    color: white;
+                    min-height: 450px;
+                    max-width: 400px;
+                    width: 100%;
+                }
+
+                .title {
+                    margin-bottom: 20px;
+                    font-size: 2.5em; 
+                    color:  #b30000; 
+                }
+
+                .input-field, .select-field {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 20px 0; 
+                    border: none;
+                    border-radius: 5px;
+                    color: #b30000;
+                }
+
+                .select-field {
+                    background-color: white;
+                }
+
+                .submit-button {
+                    background-color: white;
+                    color: #b30000;
+                    border: none;
+                    padding: 10px 15px;
+                    margin-top: 50px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    width: 100%;
+                }
+
+                .submit-button:hover {
+                    background-color: #e60000;
+                    color: white;
+                }
+            `}</style>
         </div>
     );
 }
