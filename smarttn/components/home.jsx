@@ -8,26 +8,40 @@ import "../app/home.css";
 export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
-    fetch("https://ingegneria-del-software-phcc.onrender.com/api/users/login",{
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.message==="Token valido") {
-          console.log("Token recuperato dal server:", data);
-          setIsTokenValid(true);
-        } else {
-          setIsTokenValid(false);
-        }
+    const token = Cookies.get('tokenjwt');
+    if (token) {
+      fetch("https://ingegneria-del-software-phcc.onrender.com/api/users/login", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch((error) => console.error("Errore nel recupero del token:", error));
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message === "Token valido") {
+            setIsTokenValid(true);
+          } else {
+            setIsTokenValid(false);
+          }
+        })
+        .catch((error) => console.error("Errore nel recupero del token:", error));
+    } else {
+      setIsTokenValid(false); // Evita richieste al server se il token non esiste
+    }
   }, []);
 
   const handleLogout = () => {
-    Cookies.set('jwtToken', '', { expires: 0 });
-    setIsTokenValid(false); 
-    window.location.href = '/';
+    fetch("https://ingegneria-del-software-phcc.onrender.com/api/users/login", {
+      method: "DELETE",
+      credentials: "include", 
+    })
+      .then(() => {
+        setIsTokenValid(false); 
+        window.location.href = '/';
+      })
+      .catch((error) => console.error("Errore durante il logout:", error));
   };
+  
 
   return (
     <h1 className="navbar">

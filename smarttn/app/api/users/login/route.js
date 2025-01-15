@@ -30,7 +30,7 @@ export async function POST(request) {
         const response = NextResponse.json({ message: "Accesso effettuato", token, userId: user._id, role: user.role }, { status: 200 });
         response.cookies.set('tokenjwt', token, {
             httpOnly:true,
-            maxAge: "1h",
+            maxAge: 3600,
             path: '/',
         });
         return response;
@@ -57,3 +57,9 @@ export async function GET(request) {
     }
   }
   
+
+export async function DELETE(request) {
+  const response = NextResponse.json({ message: "Logout effettuato" }, { status: 200 });
+  response.cookies.set('tokenjwt', '', { httpOnly: true, maxAge: 0, path: '/' });
+  return response;
+} 
