@@ -12,8 +12,10 @@ export default function Home_navbar() {
         if (data.token) {
           console.log("Token recuperato dal server:", data.token);
           // Verifica il token qui
+          console.log("il token c'è");
           setIsTokenValid(true);
         } else {
+          console.log("il token non c'è");
           setIsTokenValid(false);
         }
       })
