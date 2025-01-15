@@ -33,6 +33,9 @@ const getCourses = async () => {
         {courses.map((c) => (
             <div key={c._id} className="p-4 border border-slate-300 my-3 flex items-start justify-between gap-5">
                 <div>
+                cosnsole.log("id corso:");
+                console.log(c.id);
+                
                 <Link href={`/course_page?id=${c._id}`} className="font-bold text-2xl">
                     {c.title}
                 </Link>
