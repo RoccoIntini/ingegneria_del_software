@@ -1,58 +1,44 @@
-"use client"; // Dichiarazione per indicare che è un componente client
+"use client"; // Specifica che questo è un componente client
 
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import "../app/home.css";
 
-export default function coursePage() {
-    const router = useRouter();
-    const [course, setCourse] = useState(null);
-    const [loading, setLoading] = useState(true);
+export default async function coursePage({ searchParams }) {
+    const id = searchParams?.id;
 
-    const searchParams = new URLSearchParams(window.location.search);
-    const id = searchParams.get("id"); // Estrai l'ID dai parametri della query string
+    if (!id) {
+        return <div>ID del corso non fornito.</div>;
+    }
 
-    useEffect(() => {
-        if (id) {
-            fetch(`/api/courses/${id}`)
-                .then((res) => {
-                    if (!res.ok) {
-                        throw new Error("Errore nel caricamento del corso");
-                    }
-                    return res.json();
-                })
-                .then((data) => {
-                    setCourse(data);
-                    setLoading(false);
-                })
-                .catch((err) => {
-                    console.error(err);
-                    setLoading(false);
-                });
-        } else {
-            setLoading(false);
+    try {
+        const res = await fetch(`https://ingegneria-del-software-phcc.onrender.com/api/courses/${id}`, {
+            cache: "no-store", // Evita il caching per ottenere sempre i dati più aggiornati
+        });
+
+        if (!res.ok) {
+            throw new Error("Errore nel caricamento del corso");
         }
-    }, [id]);
 
-    if (loading) {
-        return <div>Caricamento...</div>;
-    }
+        const course = await res.json();
 
-    if (!course) {
-        return <div>Corso non trovato.</div>;
-    }
+        if (!course) {
+            return <div>Corso non trovato.</div>;
+        }
 
-    return (
-        <div className="course-card">
-            <div className="course-header">
-                <h1>{course.title}</h1>
-                <p>{course.description}</p>
+        return (
+            <div className="course-card">
+                <div className="course-header">
+                    <h1>{course.title}</h1>
+                    <p>{course.description}</p>
+                </div>
+                <div className="course-content">
+                    <p>Autore: {course.author}</p>
+                </div>
             </div>
-            <div className="course-content">
-                <p>Autore: {course.author}</p>
-                {/* Mostra altri dettagli del corso */}
-            </div>
-        </div>
-    );
+        );
+    } catch (error) {
+        console.error(error);
+        return <div>Errore durante il caricamento del corso.</div>;
+    }
 }
+
 
