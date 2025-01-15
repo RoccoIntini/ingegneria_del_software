@@ -1,42 +1,25 @@
-import Cookies from 'js-cookie';
-import jwtDecode from 'jwt-decode';
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import "../app/home.css";
 
+
 export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
-    const token = Cookies.get('tokenjwt'); // Get the token from cookies
-    console.log("Token recuperato:", token);
-
-    if (!token) {
-        console.log("1");
-        setIsTokenValid(false);
-        return;
-    }
-
-    try {
-      const decoded = jwtDecode(token);
-      const currentTime = Math.floor(Date.now() / 1000);
-
-      // Check if the token is expired or has the wrong role
-      if (decoded.exp < currentTime) {
-        console.log("2");
-
-          setIsTokenValid(false);
-      } else {
-        console.log("3");
-
+    fetch('/api/some-endpoint')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.token) {
+          console.log("Token recuperato dal server:", data.token);
+          // Verifica il token qui
           setIsTokenValid(true);
-      }
-    } catch (error) {
-      console.log("4");
-
-        console.error('Invalid token:', error);
-        setIsTokenValid(false);
-    }
+        } else {
+          setIsTokenValid(false);
+        }
+      })
+      .catch((error) => console.error("Errore nel recupero del token:", error));
   }, []);
+
   return (
     <h1 className="navbar">
       <Link href="/" className="bottoni_home">Home</Link>

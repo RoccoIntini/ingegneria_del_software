@@ -1,6 +1,7 @@
 import User from "@/libs/models/user";
 import connectMongoDB from "@/libs/mongodb";
 import bcrypt from "bcrypt";
+import { parse } from 'cookie';
 import jwt from 'jsonwebtoken';
 import { NextResponse } from "next/server";
 
@@ -31,3 +32,23 @@ export async function POST(request) {
     });
     return response;
 }
+
+export default function handler(req, res) {
+    const cookies = req.headers.cookie; // Ottieni i cookie dalla richiesta
+    if (!cookies) {
+      res.status(401).json({ message: 'Nessun cookie trovato' });
+      return;
+    }
+  
+    const parsedCookies = parse(cookies); // Analizza i cookie
+    const token = parsedCookies.tokenjwt; // Leggi il cookie specifico
+    console.log("Token lato server:", token);
+  
+    if (!token) {
+      res.status(401).json({ message: 'Token non trovato' });
+      return;
+    }
+  
+    res.status(200).json({ message: 'Token trovato', token });
+  }
+  
