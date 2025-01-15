@@ -1,6 +1,7 @@
 "use client";
 import localFont from "next/font/local";
 import { usePathname } from "next/navigation";
+import Footer from "../components/footer";
 import Home from "../components/home";
 import "./globals.css";
 
@@ -30,7 +31,7 @@ export default function RootLayout({ children }) {
         <div >
           {!pathname.startsWith("/admin")  && <Home />}
           <div className="mt-8">{children}</div>
-          
+          <Footer />
         </div>
        
       </body>
