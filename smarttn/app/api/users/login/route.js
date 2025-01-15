@@ -38,19 +38,19 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
-    const cookies = request.headers.get("cookie"); // Ottieni i cookie dall'intestazione
+    const cookies = request.headers.get("cookie"); 
     if (!cookies) {
       return NextResponse.json({ message: "Nessun cookie trovato" }, { status: 401 });
     }
   
-    const parsedCookies = parse(cookies); // Analizza i cookie
-    const token = parsedCookies.tokenjwt; // Leggi il cookie specifico
+    const parsedCookies = parse(cookies); 
+    const token = parsedCookies.tokenjwt; 
     if (!token) {
       return NextResponse.json({ message: "Token non trovato" }, { status: 401 });
     }
   
     try {
-      const decoded = jwt.verify(token, SECRET_KEY); // Verifica il token
+      const decoded = jwt.verify(token, SECRET_KEY); 
       return NextResponse.json({ message: "Token valido", decoded });
     } catch (error) {
       return NextResponse.json({ message: "Token non valido", error: error.message }, { status: 401 });

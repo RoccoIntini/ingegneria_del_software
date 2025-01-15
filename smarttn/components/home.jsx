@@ -11,14 +11,10 @@ export default function Home_navbar() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         if (data.message==="Token valido") {
           console.log("Token recuperato dal server:", data.token);
-          // Verifica il token qui
-          console.log("il token c'è");
           setIsTokenValid(true);
         } else {
-          console.log("il token non c'è");
           setIsTokenValid(false);
         }
       })
