@@ -6,7 +6,7 @@ import "../app/home.css";
 export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
-    fetch('/api/users/login')
+    fetch('https://ingegneria-del-software-phcc.onrender.com/api/users/login')
       .then((response) => response.json())
       .then((data) => {
         if (data.token) {
