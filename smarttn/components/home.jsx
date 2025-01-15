@@ -12,7 +12,7 @@ export default function Home_navbar() {
       .then((response) => response.json())
       .then((data) => {
         if (data.message==="Token valido") {
-          console.log("Token recuperato dal server:", data.token);
+          console.log("Token recuperato dal server:", data);
           setIsTokenValid(true);
         } else {
           setIsTokenValid(false);
