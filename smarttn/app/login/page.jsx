@@ -81,7 +81,6 @@ export default function Login() {
                     justify-content: center;
                     align-items: center;
                     min-height: 40vh;
-                    background-color: #f0f0f0;
                 }
 
                 .login-form {
