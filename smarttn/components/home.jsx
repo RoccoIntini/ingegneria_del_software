@@ -9,7 +9,6 @@ export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
     const token = Cookies.get('tokenjwt');
-    //if (token) {
       fetch("https://ingegneria-del-software-phcc.onrender.com/api/users/login", {
         method: "GET",
         headers: {
@@ -25,9 +24,7 @@ export default function Home_navbar() {
           }
         })
         .catch((error) => console.error("Errore nel recupero del token:", error));
-    //} else {
-      setIsTokenValid(false); // Evita richieste al server se il token non esiste
-    //}
+      setIsTokenValid(false);
   }, []);
 
   const handleLogout = () => {
