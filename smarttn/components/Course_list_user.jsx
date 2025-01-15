@@ -23,7 +23,8 @@ const getCourses = async () => {
 
 ; export default async function Courses_list_User() {
     const data = await getCourses();
-
+    cosnsole.log("id corso:");
+    console.log(c.id);
     const { courses } = data;
     if (!courses || courses.length === 0) {
         return <div>Nessun corso trovato.</div>;
@@ -33,8 +34,7 @@ const getCourses = async () => {
         {courses.map((c) => (
             <div key={c._id} className="p-4 border border-slate-300 my-3 flex items-start justify-between gap-5">
                 <div>
-                cosnsole.log("id corso:");
-                console.log(c.id);
+                
                 
                 <Link href={`/course_page?id=${c._id}`} className="font-bold text-2xl">
                     {c.title}
