@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Admin_mavbar() {
+  const [nomeutente, setNomeutente] = useState('');
   useEffect(() => {
     fetch("https://ingegneria-del-software-phcc.onrender.com/api/users/login",{
       method: "GET",
@@ -11,14 +12,14 @@ export default function Admin_mavbar() {
       .then((data) => {
         if (data.message==="Token valido") {
           console.log("Token recuperato dal server:", data);
-          const nome_utente= data.decoded.username;
+          setNomeutente(data.decoded.username);
         }
       })
       .catch((error) => console.error("Errore nel recupero del token:", error));
   }, []);
   return (
     <nav className="text-2xl flex items-center bg-red-800 justify-between py-4 text-white my-6 rounded-lg">
-      <div className="pl-20 font-bold">Benvenuto {nome_utente || 'utente'}</div>
+      <div className="pl-20 font-bold">Benvenuto {nomeutente || 'utente'}</div>
       <Link href={'/admin'} className="">Home admin</Link>
       
       {/* Dropdown Corsi */}
