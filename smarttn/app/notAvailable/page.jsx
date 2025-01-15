@@ -1,4 +1,4 @@
-export default function notAvailable() {
+export default function NotAvailable() {
     return (
         <div
             style={{
@@ -7,7 +7,7 @@ export default function notAvailable() {
                 alignItems: "center",
                 height: "80vh",
                 textAlign: "center",
-                color:  #b3000
+                color: "#b30000", 
             }}
         >
             <h1 style={{ fontSize: "2rem" }}>
