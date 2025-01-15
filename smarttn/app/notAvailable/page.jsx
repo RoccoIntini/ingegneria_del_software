@@ -1,12 +1,13 @@
-export default function notAvailable() {
+export default function NotAvailable() {
     return (
         <div
             style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "100vh",
+                height: "80vh",
                 textAlign: "center",
+                color: "#b30000", 
             }}
         >
             <h1 style={{ fontSize: "2rem" }}>
