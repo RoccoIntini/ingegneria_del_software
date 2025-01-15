@@ -1,5 +1,5 @@
 import Course_Page from '@/components/course_page';
 
-export default function course_view(){
-    return <Course_Page/>;
+export default function course_view({ searchParams }) {
+    return <Course_Page searchParams={searchParams} />;
 }
