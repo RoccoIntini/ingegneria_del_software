@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import "../app/home.css";
@@ -7,6 +8,8 @@ export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
     const token = Cookies.get('tokenjwt'); // Get the token from cookies
+    console.log("Token recuperato:", token);
+
     if (!token) {
         console.log("1");
         setIsTokenValid(false);
