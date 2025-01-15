@@ -8,6 +8,7 @@ export default function Home_navbar() {
   useEffect(() => {
     const token = Cookies.get('tokenjwt'); // Get the token from cookies
     if (!token) {
+        console.log("1");
         setIsTokenValid(false);
         return;
     }
@@ -18,11 +19,17 @@ export default function Home_navbar() {
 
       // Check if the token is expired or has the wrong role
       if (decoded.exp < currentTime) {
+        console.log("2");
+
           setIsTokenValid(false);
       } else {
+        console.log("3");
+
           setIsTokenValid(true);
       }
     } catch (error) {
+      console.log("4");
+
         console.error('Invalid token:', error);
         setIsTokenValid(false);
     }
