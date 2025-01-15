@@ -21,34 +21,32 @@ const getCourses = async () => {
 };
 
 
-; export default async function Courses_list_User() {
+;export default async function Courses_list_User() {
     const data = await getCourses();
-    cosnsole.log("id corso:");
-    console.log(c.id);
     const { courses } = data;
+
     if (!courses || courses.length === 0) {
         return <div>Nessun corso trovato.</div>;
-    } return (
+    }
+
+    return (
         <> 
         <div className="text-3xl font-bold py-3">Elenco dei corsi</div>
-        {courses.map((c) => (
-            <div key={c._id} className="p-4 border border-slate-300 my-3 flex items-start justify-between gap-5">
-                <div>
-                
-                
-                <Link href={`/course_page?id=${c._id}`} className="font-bold text-2xl">
-                    {c.title}
-                </Link>
-
-
-
+        {courses.map((c) => {
+            console.log("id corso:", c._id); // Log dell'ID del corso
+            return (
+                <div key={c._id} className="p-4 border border-slate-300 my-3 flex items-start justify-between gap-5">
                     <div>
-                        {c.description}
-                    </div>
-                    <div>
-                        {c.author}
+                        <Link href={`/course_page?id=${c._id}`} className="font-bold text-2xl">
+                            {c.title}
+                        </Link>
+                        <div>{c.description}</div>
+                        <div>{c.author}</div>
                     </div>
                 </div>
-            </div>
-        ))} </>);
+            );
+        })}
+        </>
+    );
 }
+
