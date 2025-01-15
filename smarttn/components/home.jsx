@@ -6,9 +6,12 @@ import "../app/home.css";
 export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
-    fetch('https://ingegneria-del-software-phcc.onrender.com/api/users/login')
+    fetch("https://ingegneria-del-software-phcc.onrender.com/api/users/login",{
+      method: "GET",
+    })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         if (data.token) {
           console.log("Token recuperato dal server:", data.token);
           // Verifica il token qui
