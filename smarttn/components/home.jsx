@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import "../app/home.css";
 
 
+
 export default function Home_navbar() {
   const [isTokenValid, setIsTokenValid] = useState(false);
   useEffect(() => {
@@ -20,6 +21,12 @@ export default function Home_navbar() {
       })
       .catch((error) => console.error("Errore nel recupero del token:", error));
   }, []);
+
+  const handleLogout = () => {
+    Cookies.remove('tokenjwt'); 
+    setIsTokenValid(false); 
+    window.location.href = '/';
+  };
 
   return (
     <h1 className="navbar">
@@ -39,12 +46,16 @@ export default function Home_navbar() {
       {!isTokenValid ? (
           <Link href="/login" className="bottoni_home">Accedi</Link>
         ) : (
-          <Link href="/login" className="bottoni_home">Profilo</Link>
+          <div className="relative group">
+            <button className="py-2">Profilo</button>
+            <div className="absolute left-0 hidden bg-white text-red-600 text-base shadow-lg w-40 group-hover:block">
+            <button onClick={handleLogout} className="block px-4 py-2">Logout</button>
+            </div>
+          </div>
         )}
 
         
       
-        
       
        
       
