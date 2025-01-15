@@ -5,8 +5,9 @@ export default function notAvailable() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "100vh",
+                height: "80vh",
                 textAlign: "center",
+                color:  #b30000,
             }}
         >
             <h1 style={{ fontSize: "2rem" }}>
