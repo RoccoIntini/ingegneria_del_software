@@ -3,24 +3,11 @@
 import "../app/home.css";
 
 export default async function Course_Page({ searchParams }) {
-    let id;
-
-    try {
-        // Decodifica `searchParams` se è un oggetto complesso
-        if (typeof searchParams === "string") {
-            const parsedParams = JSON.parse(searchParams);
-            id = parsedParams.id;
-        } else if (searchParams?.id) {
-            id = searchParams.id;
-        } else {
-            throw new Error("Parametri non validi");
-        }
-    } catch (error) {
-        console.error("Errore durante la decodifica dei parametri:", error);
-        return <div>Errore nei parametri del corso.</div>;
-    }
+    // Assumiamo che `searchParams` sia un oggetto con chiave-valore
+    const id = searchParams?.id;
 
     if (!id) {
+        console.error("ID del corso non trovato nei parametri:", searchParams);
         return <div>ID del corso non fornito.</div>;
     }
 
@@ -55,6 +42,7 @@ export default async function Course_Page({ searchParams }) {
         return <div>Errore durante il caricamento del corso.</div>;
     }
 }
+
 
 
 

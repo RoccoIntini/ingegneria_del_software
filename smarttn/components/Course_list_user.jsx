@@ -38,6 +38,7 @@ const getCourses = async () => {
                 </Link>
 
 
+
                     <div>
                         {c.description}
                     </div>
