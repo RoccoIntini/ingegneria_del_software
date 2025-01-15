@@ -7,7 +7,7 @@ export default function notAvailable() {
                 alignItems: "center",
                 height: "80vh",
                 textAlign: "center",
-                color:  #b30000,
+                color:  #b3000
             }}
         >
             <h1 style={{ fontSize: "2rem" }}>
