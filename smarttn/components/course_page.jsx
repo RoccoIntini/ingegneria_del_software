@@ -1,17 +1,20 @@
-import { useRouter } from "next/router";
+"use client"; // Dichiarazione per indicare che è un componente client
+
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import "../app/home.css";
 
 export default function coursePage() {
     const router = useRouter();
-    const { id } = router.query; // Estrae l'ID dalla query string
-
     const [course, setCourse] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const searchParams = new URLSearchParams(window.location.search);
+    const id = searchParams.get("id"); // Estrai l'ID dai parametri della query string
+
     useEffect(() => {
         if (id) {
-            fetch(`/api/courses/[id]/${id}`)
+            fetch(`/api/courses/${id}`)
                 .then((res) => {
                     if (!res.ok) {
                         throw new Error("Errore nel caricamento del corso");
@@ -26,6 +29,8 @@ export default function coursePage() {
                     console.error(err);
                     setLoading(false);
                 });
+        } else {
+            setLoading(false);
         }
     }, [id]);
 
@@ -50,3 +55,4 @@ export default function coursePage() {
         </div>
     );
 }
+
