@@ -132,14 +132,14 @@
     font-family: Arial, sans-serif;
   }
   
-  .header {
+  .course-header {
     background-color: #8B0000; /* Colore rosso scuro */
     color: white;
     text-align: center;
     padding: 20px;
   }
   
-  .content {
+  .course-content {
     margin: 20px;
     display: flex;
     justify-content: center;
