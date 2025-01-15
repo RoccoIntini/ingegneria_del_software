@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 
 
 const getCourses = async () => {
@@ -33,9 +33,9 @@ const getCourses = async () => {
         {courses.map((c) => (
             <div key={c._id} className="p-4 border border-slate-300 my-3 flex items-start justify-between gap-5">
                 <div>
-                    <link href="/course_page" className="font-bold text-2xl">
+                    <Link href="/course_page" className="font-bold text-2xl">
                         {c.title}
-                    </link>
+                    </Link>
 
                     <div>
                         {c.description}
