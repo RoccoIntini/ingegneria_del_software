@@ -3,6 +3,7 @@
 import "../app/home.css";
 
 export default async function coursePage({ searchParams }) {
+    console.log("searchParams:", searchParams);
     const id = searchParams?.id;
 
     if (!id) {
