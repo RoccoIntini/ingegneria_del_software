@@ -32,7 +32,8 @@ export default function Login() {
                     const data = await res.json();
 
                     if (data.role === 'user') {
-                        router.replace('/');
+                        router.push('/');
+                        window.location.reload();
                     } else if (data.role === 'poweruser' || data.role === 'admin') {
                         router.push('/admin');
                     }
