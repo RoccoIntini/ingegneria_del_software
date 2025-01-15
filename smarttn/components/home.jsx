@@ -2,6 +2,8 @@ import Link from "next/link";
 import "../app/home.css";
 
 export default function Home_navbar({ isTokenValid }) {
+  console.log("token:");
+  console.log(isTokenValid);
   return (
     <h1 className="navbar">
       <Link href="/" className="bottoni_home">Home</Link>
@@ -15,7 +17,8 @@ export default function Home_navbar({ isTokenValid }) {
 
       <Link href="viewCourseUser" className="bottoni_home">Corsi</Link>
 
-
+      
+      
       {!isTokenValid ? (
           <Link href="/login" className="bottoni_home">Accedi</Link>
         ) : (
