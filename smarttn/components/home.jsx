@@ -24,7 +24,7 @@ export default function Home_navbar() {
   return (
     <h1 className="navbar">
       <Link href="/" className="bottoni_home">Home</Link>
-      <img src="/logo.jpg" alt="logo" className="logo"/>
+      <img src="/logo_smarttn.jpg" alt="logo" className="logo"/>
       <div className="search-bar">
         <img src="/lente_ricerca.png" alt="Search Icon" className="search-icon" />
         <input type="text" placeholder="Cerca..." />
