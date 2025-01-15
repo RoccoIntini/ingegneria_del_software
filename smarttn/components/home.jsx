@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import Link from "next/link";
 import { useEffect, useState } from 'react';
 import "../app/home.css";
