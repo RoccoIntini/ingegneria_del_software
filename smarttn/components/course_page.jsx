@@ -2,9 +2,23 @@
 
 import "../app/home.css";
 
-export default async function coursePage({ searchParams }) {
-    console.log("searchParams:", searchParams);
-    const id = searchParams?.id;
+export default async function Course_Page({ searchParams }) {
+    let id;
+
+    try {
+        // Decodifica `searchParams` se è un oggetto complesso
+        if (typeof searchParams === "string") {
+            const parsedParams = JSON.parse(searchParams);
+            id = parsedParams.id;
+        } else if (searchParams?.id) {
+            id = searchParams.id;
+        } else {
+            throw new Error("Parametri non validi");
+        }
+    } catch (error) {
+        console.error("Errore durante la decodifica dei parametri:", error);
+        return <div>Errore nei parametri del corso.</div>;
+    }
 
     if (!id) {
         return <div>ID del corso non fornito.</div>;
@@ -12,7 +26,7 @@ export default async function coursePage({ searchParams }) {
 
     try {
         const res = await fetch(`https://ingegneria-del-software-phcc.onrender.com/api/courses/${id}`, {
-            cache: "no-store", // Evita il caching per ottenere sempre i dati più aggiornati
+            cache: "no-store", // Evita il caching
         });
 
         if (!res.ok) {
@@ -37,9 +51,10 @@ export default async function coursePage({ searchParams }) {
             </div>
         );
     } catch (error) {
-        console.error(error);
+        console.error("Errore durante il caricamento del corso:", error);
         return <div>Errore durante il caricamento del corso.</div>;
     }
 }
+
 
 
