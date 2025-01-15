@@ -24,7 +24,7 @@ export default function Home_navbar() {
   }, []);
 
   const handleLogout = () => {
-    Cookies.remove('tokenjwt'); 
+    Cookies.set('jwtToken', '', { expires: 0 });
     setIsTokenValid(false); 
     window.location.href = '/';
   };
