@@ -8,8 +8,8 @@
 }
 
 .insert-form {
-  min-height: 80vh;
-  width: 60vw; /* Aumento larghezza */
+  min-height: 60vh;
+  width: 40vw; /* Aumento larghezza */
   border: 1px solid gray;
   border-radius: 20px;
   display: flex;
