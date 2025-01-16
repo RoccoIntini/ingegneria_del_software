@@ -62,7 +62,8 @@ export default function AddCourse() {
       <h2 className="title">Aggiungi un nuovo corso</h2>
 
       <form onSubmit={handleSubmit}>
-        <div>
+        {/* Titolo */}
+        <div className="content-block">
           <input
             className="input-field"
             onChange={(e) => setTitle(e.target.value)}
@@ -73,7 +74,8 @@ export default function AddCourse() {
           />
         </div>
 
-        <div>
+        {/* Descrizione */}
+        <div className="content-block">
           <input
             className="input-field"
             onChange={(e) => setDescription(e.target.value)}
@@ -84,7 +86,8 @@ export default function AddCourse() {
           />
         </div>
 
-        <div>
+        {/* Autore */}
+        <div className="content-block">
           <input
             className="input-field"
             onChange={(e) => setAuthor(e.target.value)}
@@ -95,7 +98,8 @@ export default function AddCourse() {
           />
         </div>
 
-        <div>
+        {/* Categoria */}
+        <div className="content-block">
           <input
             className="input-field"
             onChange={(e) => setCategory(e.target.value)}
@@ -106,12 +110,15 @@ export default function AddCourse() {
           />
         </div>
 
-        {/* Aggiungere i blocchi di contenuto */}
-        <div>
+        {/* Blocchi di contenuto */}
+        <div className="content-section">
           <h3>Contenuti del corso:</h3>
           {contentBlocks.map((block, index) => (
             <div key={index} className="content-block">
+              {/* Selezione del tipo di contenuto */}
+              <label>Tipo di contenuto:</label>
               <select
+                className="input-field"
                 value={block.type}
                 onChange={(e) => updateContentBlock(index, 'type', e.target.value)}
               >
@@ -120,31 +127,39 @@ export default function AddCourse() {
                 <option value="video">Video</option>
               </select>
 
+              {/* Campo per il contenuto */}
               <div>
                 <label>Contenuto:</label>
                 <input
                   type="text"
+                  className="input-field"
                   value={block.content}
                   onChange={(e) => updateContentBlock(index, 'content', e.target.value)}
+                  placeholder="Inserisci contenuto"
                 />
               </div>
 
+              {/* Campo per la didascalia */}
               <div>
                 <label>Didascalia (opzionale):</label>
                 <input
                   type="text"
+                  className="input-field"
                   value={block.caption}
                   onChange={(e) => updateContentBlock(index, 'caption', e.target.value)}
+                  placeholder="Inserisci didascalia"
                 />
               </div>
             </div>
           ))}
 
+          {/* Pulsante per aggiungere nuovi paragrafi */}
           <button type="button" className="add-paragraph-button" onClick={addContentBlock}>
             Aggiungi un paragrafo
           </button>
         </div>
 
+        {/* Pulsante per inviare il form */}
         <button type="submit" className="submit-button">
           Aggiungi Corso
         </button>
