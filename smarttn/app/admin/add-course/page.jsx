@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import "../add-course.css";
+import "../../add-course.css";
 
 export default function AddCourse() {
   const [title, setTitle] = useState("");
