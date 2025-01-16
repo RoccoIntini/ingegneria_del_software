@@ -27,13 +27,13 @@ body {
 
 .course-header h1 {
     font-size: 2rem;
-    color: #e63946; /* Titolo in rosso */
+    color: whitesmoke; 
     margin: 0;
 }
 
 .course-header p {
     font-size: 1.1rem;
-    color: #555;
+    color: whitesmoke;
 }
 
 /* Contenuti del corso */
