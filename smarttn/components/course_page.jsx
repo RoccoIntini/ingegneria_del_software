@@ -1,4 +1,5 @@
 "use client"; // Specifica che questo è un componente client
+import "../app/course_view.css"; // Import del CSS
 
 import { useEffect, useState } from "react";
 import "../app/home.css";
