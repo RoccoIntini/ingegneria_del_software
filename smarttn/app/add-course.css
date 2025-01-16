@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 2rem; /* Aumento grandezza titolo */
+  font-size: 1.5rem; /* Aumento grandezza titolo */
   color: #b30000;
   margin-bottom: 20px; /* Spaziatura sotto il titolo */
 }
@@ -43,12 +43,12 @@
 }
 
 .submit-button:hover {
-  background-color: #900000; /* Cambia colore al passaggio del mouse */
+  background-color: #900000; 
 }
 
 .add-paragraph-button {
-  color: white;
-  background-color: #007bff;
+  color: #b30000;
+  background-color: white;
   padding: 10px 15px; /* Aumento padding bottone */
   font-size: 1.1rem; /* Aumento dimensione testo */
   border: none;
@@ -58,7 +58,8 @@
 }
 
 .add-paragraph-button:hover {
-  background-color: #0056b3; /* Cambia colore al passaggio del mouse */
+  background-color: #b30000;
+  color: white;
 }
 
 .content-block {
