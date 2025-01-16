@@ -140,7 +140,7 @@ export default function AddCourse() {
             </div>
           ))}
 
-          <button type="button" onClick={addContentBlock}>
+          <button type="button" className="add-paragraph-button" onClick={addContentBlock}>
             Aggiungi un paragrafo
           </button>
         </div>
