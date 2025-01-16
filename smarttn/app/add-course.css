@@ -1,14 +1,30 @@
-.title{
+.title {
+  display: flex;
+  justify-content: center;
   color: #b30000;
 }
 
-.insert-form{
-
+.insert-form {
+  min-height: 80vh;
+  width: 50vw; 
   border: 1px solid gray;
   border-radius: 20px;
-  display:flex;
+  display: flex;
   justify-content: flex-start;
   padding: 10px;
   margin: 10px;
+}
 
+.input-field {
+  color: black;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px; 
+}
+
+.submit-button{
+  color: whitesmoke;
+  background-color: #b30000;
+  width: 20vw;
+  heigth: 10vh;
 }
