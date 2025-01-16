@@ -77,12 +77,19 @@ export default function Course_Page({ searchParams }) {
             <div className="course-content">
                 <p>Autore: {course.author}</p>
             </div>
+            <div className="course-blocks">
+                <h2>Contenuti</h2>
+                {course.contentBlocks && course.contentBlocks.length > 0 ? (
+                    course.contentBlocks.map((block, index) => (
+                        <div key={index} className="content-block">
+                            {block.caption && <h3>{block.caption}</h3>}
+                            <p>{block.content}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>Nessun contenuto disponibile.</p>
+                )}
+            </div>
         </div>
     );
 }
-
-
-
-
-
-
