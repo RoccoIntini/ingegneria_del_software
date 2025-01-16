@@ -1,6 +1,14 @@
-div{
-  border: 2px solid gray;
+.title{
+  color: #b30000;
+}
+
+.insert-form{
+
+  border: 1px solid gray;
   border-radius: 20px;
-  display: flex;
+  display:flex;
   justify-content: flex-start;
+  padding: 10px;
+  margin: 10px;
+
 }
