@@ -51,7 +51,7 @@
   background-color: white;
   padding: 10px 15px; /* Aumento padding bottone */
   font-size: 1.1rem; /* Aumento dimensione testo */
-  border: none;
+  border: 1px solid #b30000; /* Aggiunto bordo rosso */
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
@@ -63,6 +63,27 @@
 }
 
 .content-block {
-  margin-bottom: 20px; /* Spaziatura tra blocchi */
+  margin-bottom: 20px; /* Spaziatura tra i blocchi */
+  width: 100%; /* Allineamento con il form */
 }
 
+.content-block select {
+  padding: 10px; /* Aumento padding della tendina */
+  font-size: 1.1rem; /* Aumento dimensione testo nella tendina */
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%; /* Larghezza massima della tendina */
+  box-sizing: border-box;
+  margin-bottom: 10px; /* Spaziatura tra la tendina e gli altri campi */
+}
+
+.content-block input[type="text"] {
+  color: black;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px; /* Aumento padding per i campi di input */
+  font-size: 1.1rem; /* Aumento dimensione testo */
+  margin-bottom: 10px; /* Spaziatura verticale tra i campi */
+  width: 100%; /* Larghezza massima dei campi */
+  box-sizing: border-box;
+}
