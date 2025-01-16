@@ -38,7 +38,7 @@ export default function Admin_mavbar() {
   <div className="relative group">
     <button className="py-2">Corsi</button>
     <div className="absolute left-0 hidden bg-white text-red-600 text-base shadow-lg w-40 group-hover:block">
-      <Link href="/admin/notAvailable" className="block px-4 py-2">Aggiungi corso</Link>
+      <Link href="/admin/add-course" className="block px-4 py-2">Aggiungi corso</Link>
       <Link href="/admin/viewCourse" className="block px-4 py-2">Lista corsi</Link>
       <Link href="/admin/notAvailable" className="block px-4 py-2">Gestisci richieste</Link>
     </div>
