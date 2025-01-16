@@ -58,7 +58,7 @@ export default function AddCourse() {
   };
 
   return (
-    <div>
+    <div className="insert-form">
       <h2 className="title">Aggiungi un nuovo corso</h2>
 
       <form onSubmit={handleSubmit}>
