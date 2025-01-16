@@ -1,0 +1,150 @@
+/* Reset di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo della pagina */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Contenitore principale */
+div {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Titolo della pagina */
+h2.title {
+  color: #e50914; /* Rosso brillante */
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Stile per i campi di input */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.input-field:focus {
+  border-color: #e50914; /* Bordo rosso quando il campo è selezionato */
+  outline: none;
+}
+
+/* Stile per il pulsante di invio */
+.submit-button {
+  background-color: #e50914;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #b3060e; /* Rosso più scuro al passaggio del mouse */
+}
+
+/* Contenitore per i blocchi di contenuto */
+h3 {
+  color: #e50914;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Stile per i blocchi di contenuto */
+.content-block {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #e50914;
+  border-radius: 5px;
+}
+
+.content-block select,
+.content-block input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.content-block input {
+  color: #333;
+}
+
+.content-block select {
+  font-size: 1rem;
+}
+
+/* Pulsante per aggiungere un blocco di contenuto */
+button[type="button"] {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type="button"]:hover {
+  background-color: #b3060e;
+}
+
+/* Stile per la form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive design: migliora la visualizzazione sui dispositivi mobili */
+@media (max-width: 768px) {
+  .input-field,
+  .submit-button,
+  button[type="button"] {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  h2.title {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
