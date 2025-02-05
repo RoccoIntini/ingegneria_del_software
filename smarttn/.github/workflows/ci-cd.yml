@@ -10,33 +10,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
       - name: Checkout repository
         uses: actions/checkout@v3
 
-     
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18  
+          cache: 'npm'  # Usa la cache per velocizzare le installazioni
 
-     
       - name: Install dependencies
         run: npm install
 
-    
       - name: Build project
         run: npm run build
 
-    
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }} 
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }} 
         run: |
+          if [[ -z "$RENDER_SERVICE_ID" || -z "$RENDER_API_KEY" ]]; then
+            echo "❌ ERRORE: RENDER_SERVICE_ID o RENDER_API_KEY non sono impostati!"
+            exit 1
+          fi
           
-          curl -s -X POST "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
+          echo "🚀 Avviando il deploy su Render per il servizio: $RENDER_SERVICE_ID"
+          
+          RESPONSE=$(curl -s -X POST "https://api.render.com/v1/services/${RENDER_SERVICE_ID}/deploys" \
             -H "Accept: application/json" \
-            -H "Authorization: Bearer $RENDER_API_KEY" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}" \
             -H "Content-Type: application/json" \
-            --data '{}'
+            --data '{}')
+          
+          echo "📢 Risposta API di Render: $RESPONSE"
